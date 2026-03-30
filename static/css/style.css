@@ -1,0 +1,82 @@
+/* Colores base */
+:root {
+    --c1: #93f46f;
+    --c2: #7fe15d;
+    --c3: #6cce4a;
+    --c4: #58bb38;
+    --c5: #44a825;
+}
+
+/* Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: white;
+    border-bottom: 2px solid var(--c3);
+}
+
+header h1 {
+    color: var(--c5);
+}
+
+nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: var(--c4);
+    font-weight: bold;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--c1), var(--c4));
+    color: white;
+}
+
+.hero h2 {
+    font-size: 40px;
+}
+
+/* Botón */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: white;
+    color: var(--c5);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border-top: 5px solid var(--c3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #eee;
+}
