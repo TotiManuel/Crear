@@ -498,3 +498,10 @@ textarea {
     }
 
 }
+.install-btn {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none !important;
+}

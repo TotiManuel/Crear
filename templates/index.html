@@ -19,6 +19,13 @@
         >
     </div>
 
+    <button
+        id="installButton"
+        class="btn install-btn hidden"
+    >
+        📲 Instalar aplicación
+    </button>
+
     <!-- Botón agregar -->
     <div class="actions">
         <button id="addButton" class="btn">
@@ -192,6 +199,112 @@ async function loadWords() {
         loading.classList.add("hidden");
 
     }
+}
+
+/* =========================
+   INSTALAR PWA
+========================= */
+
+let deferredPrompt = null;
+
+const installButton =
+    document.getElementById("installButton");
+
+
+/*
+ * Chrome / Edge / Android compatibles
+ */
+
+window.addEventListener(
+    "beforeinstallprompt",
+    event => {
+
+        console.log("PWA disponible para instalar");
+
+        event.preventDefault();
+
+        deferredPrompt = event;
+
+        installButton.classList.remove("hidden");
+
+    }
+);
+
+
+/*
+ * Click en nuestro botón
+ */
+
+installButton.addEventListener(
+    "click",
+    async () => {
+
+        if (!deferredPrompt) {
+
+            alert(
+                "La instalación no está disponible automáticamente en este navegador. " +
+                "Usá el menú del navegador y seleccioná " +
+                "\"Instalar aplicación\" o \"Agregar a pantalla de inicio\"."
+            );
+
+            return;
+
+        }
+
+
+        deferredPrompt.prompt();
+
+
+        const result =
+            await deferredPrompt.userChoice;
+
+
+        console.log(
+            "Resultado:",
+            result.outcome
+        );
+
+
+        deferredPrompt = null;
+
+        installButton.classList.add("hidden");
+
+    }
+);
+
+
+/*
+ * La aplicación fue instalada
+ */
+
+window.addEventListener(
+    "appinstalled",
+    () => {
+
+        console.log(
+            "English Glossary instalada"
+        );
+
+        installButton.classList.add("hidden");
+
+        deferredPrompt = null;
+
+    }
+);
+
+
+/*
+ * Si ya está instalada
+ */
+
+if (
+    window.matchMedia(
+        "(display-mode: standalone)"
+    ).matches
+) {
+
+    installButton.classList.add("hidden");
+
 }
 
 
