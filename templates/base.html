@@ -916,6 +916,35 @@
         }
 
     </style>
+    <link
+        rel="manifest"
+        href="{{ url_for('static', filename='manifest.json') }}"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
+    <meta
+        name="mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Glossary"
+    >
 
 </head>
 
@@ -987,6 +1016,45 @@
         </p>
 
     </footer>
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+                        .register(
+                            "{{ url_for('static', filename='sw.js') }}"
+                        )
+                        .then(
+                            registration => {
+
+                                console.log(
+                                    "Service Worker registrado:",
+                                    registration.scope
+                                );
+
+                            }
+                        )
+                        .catch(
+                            error => {
+
+                                console.error(
+                                    "Error registrando Service Worker:",
+                                    error
+                                );
+
+                            }
+                        );
+
+                }
+            );
+
+        }
+
+    </script>
 
 
 </body>
