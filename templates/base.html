@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
+    <meta
+        name="description"
+        content="English Glossary - Glosario de inglés"
+    >
+
+    <title>
+        {% block title %}English Glossary{% endblock %}
+    </title>
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =================================================
+           RESET
+        ================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+            line-height: 1.5;
+        }
+
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =================================================
+           HEADER
+        ================================================= */
+
+        header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        .header-container {
+            width: min(1200px, 94%);
+
+            min-height: 70px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        /* =================================================
+           LOGO
+        ================================================= */
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 1.25rem;
+
+            font-weight: 800;
+
+            color: #111827;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-icon {
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 1.1rem;
+
+            box-shadow:
+                0 4px 10px
+                rgba(37, 99, 235, 0.25);
+        }
+
+
+        /* =================================================
+           NAV
+        ================================================= */
+
+        nav {
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        nav a {
+            padding: 9px 13px;
+
+            border-radius: 8px;
+
+            color: #4b5563;
+
+            font-size: 0.9rem;
+
+            font-weight: 600;
+
+            transition:
+                background 0.2s,
+                color 0.2s;
+        }
+
+
+        nav a:hover {
+            background: #eff6ff;
+
+            color: #2563eb;
+        }
+
+
+        nav a.active {
+            background: #eff6ff;
+
+            color: #2563eb;
+        }
+
+
+        /* =================================================
+           MAIN
+        ================================================= */
+
+        main {
+            flex: 1;
+
+            width: 100%;
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        footer {
+            margin-top: auto;
+
+            padding: 25px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid #e5e7eb;
+
+            background: white;
+
+            color: #6b7280;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =================================================
+           RESPONSIVE HEADER
+        ================================================= */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                min-height: auto;
+
+                padding: 12px 0;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+
+            .logo {
+                font-size: 1.15rem;
+            }
+
+
+            nav {
+                width: 100%;
+
+                justify-content: center;
+
+                overflow-x: auto;
+
+                padding-bottom: 2px;
+
+                scrollbar-width: none;
+            }
+
+
+            nav::-webkit-scrollbar {
+                display: none;
+            }
+
+
+            nav a {
+                flex-shrink: 0;
+
+                font-size: 0.82rem;
+
+                padding: 8px 10px;
+            }
+
+        }
+
+
+        /* =================================================
+           GLOSARIO
+           Estos estilos pertenecen al index.
+        ================================================= */
+
+        .glossary {
+            width: min(1200px, 94%);
+
+            margin: 0 auto;
+
+            padding: 40px 0 70px;
+        }
+
+
+        .glossary-header {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .glossary-header h1 {
+            margin-bottom: 8px;
+
+            font-size: clamp(
+                2rem,
+                5vw,
+                3rem
+            );
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            color: #111827;
+        }
+
+
+        .glossary-header p {
+            color: #6b7280;
+
+            font-size: 1rem;
+        }
+
+
+        /* =================================================
+           BUSCADOR
+        ================================================= */
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+
+        .search-container input {
+            width: 100%;
+
+            padding: 16px 20px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: #111827;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+
+        .search-container input::placeholder {
+            color: #9ca3af;
+        }
+
+
+        .search-container input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37, 99, 235, 0.12);
+        }
+
+
+        /* =================================================
+           BOTONES
+        ================================================= */
+
+        .actions {
+            display: flex;
+
+            justify-content: flex-end;
+
+            margin-bottom: 25px;
+        }
+
+
+        .btn {
+            border: none;
+
+            border-radius: 9px;
+
+            padding: 11px 17px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s,
+                background 0.15s,
+                opacity 0.15s;
+        }
+
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+
+        .btn:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+
+        .btn-secondary {
+            background: #6b7280;
+        }
+
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+
+        .btn-edit {
+            background: #f59e0b;
+        }
+
+
+        .btn-edit:hover {
+            background: #d97706;
+        }
+
+
+        .btn-delete {
+            background: #dc2626;
+        }
+
+
+        .btn-delete:hover {
+            background: #b91c1c;
+        }
+
+
+        /* =================================================
+           FORMULARIO
+        ================================================= */
+
+        .form-container {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 25px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .form-container h2 {
+            margin-bottom: 20px;
+
+            color: #111827;
+        }
+
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: 600;
+
+            color: #374151;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 12px 14px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            background: #fff;
+
+            color: #111827;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37, 99, 235, 0.1);
+        }
+
+
+        .form-group textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+
+        .form-actions {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        /* =================================================
+           INFORMACIÓN
+        ================================================= */
+
+        .glossary-info {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+
+            color: #6b7280;
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =================================================
+           LISTADO
+        ================================================= */
+
+        .word-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+
+        /* =================================================
+           TARJETAS
+        ================================================= */
+
+        .word-card {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            transition:
+                box-shadow 0.2s,
+                transform 0.2s;
+        }
+
+
+        .word-card:hover {
+            box-shadow:
+                0 6px 20px
+                rgba(0, 0, 0, 0.07);
+        }
+
+
+        .word-content {
+            flex: 1;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                2fr;
+
+            gap: 20px;
+
+            min-width: 0;
+        }
+
+
+        .word-field {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            min-width: 0;
+        }
+
+
+        .word-field .label {
+            color: #9ca3af;
+
+            font-size: 0.75rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            font-weight: 700;
+        }
+
+
+        .word-field strong {
+            font-size: 1.1rem;
+
+            color: #111827;
+
+            word-break: break-word;
+        }
+
+
+        .word-field span:not(.label) {
+            word-break: break-word;
+
+            line-height: 1.5;
+        }
+
+
+        /* =================================================
+           ACCIONES DE PALABRA
+        ================================================= */
+
+        .word-actions {
+            display: flex;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+        }
+
+
+        .word-actions .btn {
+            white-space: nowrap;
+        }
+
+
+        /* =================================================
+           ESTADOS
+        ================================================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        .loading,
+        .empty,
+        .error {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            color: #6b7280;
+        }
+
+
+        .error {
+            color: #dc2626;
+        }
+
+
+        /* =================================================
+           TABLET / MOBILE
+        ================================================= */
+
+        @media (max-width: 800px) {
+
+            .glossary {
+                width: 92%;
+
+                padding-top: 25px;
+            }
+
+
+            .actions {
+                justify-content: stretch;
+            }
+
+
+            .actions .btn {
+                width: 100%;
+            }
+
+
+            .word-card {
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 18px;
+            }
+
+
+            .word-content {
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+            }
+
+
+            .word-actions {
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .word-actions .btn {
+                width: 100%;
+            }
+
+        }
+
+
+        /* =================================================
+           CELULAR
+        ================================================= */
+
+        @media (max-width: 500px) {
+
+            .glossary {
+                width: 94%;
+
+                padding-top: 20px;
+            }
+
+
+            .form-container {
+                padding: 18px;
+            }
+
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+
+            .form-actions .btn {
+                width: 100%;
+            }
+
+
+            .glossary-info {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .word-actions {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* =================================================
+           DARK MODE DEL SISTEMA
+        ================================================= */
+
+        @media (prefers-color-scheme: dark) {
+
+            body {
+                background: #111827;
+
+                color: #f3f4f6;
+            }
+
+
+            header {
+                background: rgba(17, 24, 39, 0.95);
+
+                border-color: #374151;
+            }
+
+
+            .logo {
+                color: #f9fafb;
+            }
+
+
+            nav a {
+                color: #d1d5db;
+            }
+
+
+            nav a:hover,
+            nav a.active {
+                background: #1e3a8a;
+
+                color: #bfdbfe;
+            }
+
+
+            .glossary-header h1,
+            .form-container h2,
+            .word-field strong {
+                color: #f9fafb;
+            }
+
+
+            .glossary-header p {
+                color: #9ca3af;
+            }
+
+
+            .search-container input,
+            .form-container,
+            .word-card,
+            .loading,
+            .empty,
+            .error,
+            footer {
+                background: #1f2937;
+
+                border-color: #374151;
+
+                color: #f3f4f6;
+            }
+
+
+            .search-container input,
+            .form-group input,
+            .form-group textarea {
+                background: #111827;
+
+                border-color: #4b5563;
+
+                color: #f9fafb;
+            }
+
+
+            .form-group label {
+                color: #d1d5db;
+            }
+
+
+            footer {
+                color: #9ca3af;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-container">
+
+            <a
+                href="/"
+                class="logo"
+            >
+
+                <span class="logo-icon">
+                    📖
+                </span>
+
+                <span>
+                    English Glossary
+                </span>
+
+            </a>
+
+
+            <nav>
+
+                <a
+                    href="/"
+                    class="active"
+                >
+                    Glosario
+                </a>
+
+                <a href="#agregar">
+                    Agregar
+                </a>
+
+                <a href="#palabras">
+                    Palabras
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 English Glossary
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

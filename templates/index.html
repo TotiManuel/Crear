@@ -1,0 +1,723 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="glossary">
+
+    <div class="glossary-header">
+        <h1>English Glossary</h1>
+        <p>Buscá, agregá y administrá palabras en inglés.</p>
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-container">
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔎 Buscar palabra, traducción o significado..."
+            autocomplete="off"
+        >
+    </div>
+
+    <!-- Botón agregar -->
+    <div class="actions">
+        <button id="addButton" class="btn">
+            + Agregar palabra
+        </button>
+    </div>
+
+    <!-- Formulario -->
+    <div id="wordFormContainer" class="form-container hidden">
+
+        <h2 id="formTitle">Agregar palabra</h2>
+
+        <form id="wordForm">
+
+            <input type="hidden" id="wordId">
+
+            <div class="form-group">
+                <label for="english">Inglés</label>
+                <input
+                    type="text"
+                    id="english"
+                    name="english"
+                    placeholder="Ej: Syringe"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="spanish">Español</label>
+                <input
+                    type="text"
+                    id="spanish"
+                    name="spanish"
+                    placeholder="Ej: Jeringa"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="meaning">Significado</label>
+                <textarea
+                    id="meaning"
+                    name="meaning"
+                    placeholder="Explicación o significado..."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn">
+                    Guardar
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelButton"
+                    class="btn btn-secondary"
+                >
+                    Cancelar
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Información -->
+    <div class="glossary-info">
+        <span id="wordCount">
+            Total: 0 palabras
+        </span>
+
+        <span id="searchCount"></span>
+    </div>
+
+    <!-- Listado -->
+    <section class="word-list">
+
+        <div id="loading" class="loading">
+            Cargando glosario...
+        </div>
+
+        <div id="emptyMessage" class="empty hidden">
+            Todavía no hay palabras.
+        </div>
+
+        <div id="noResults" class="empty hidden">
+            No se encontraron palabras.
+        </div>
+
+        <div id="wordsContainer"></div>
+
+    </section>
+
+</section>
+
+
+<script>
+
+let words = [];
+let editingId = null;
+
+
+/* =========================
+   ELEMENTOS
+========================= */
+
+const searchInput = document.getElementById("searchInput");
+const addButton = document.getElementById("addButton");
+
+const formContainer =
+    document.getElementById("wordFormContainer");
+
+const wordForm =
+    document.getElementById("wordForm");
+
+const cancelButton =
+    document.getElementById("cancelButton");
+
+const wordsContainer =
+    document.getElementById("wordsContainer");
+
+const loading =
+    document.getElementById("loading");
+
+const emptyMessage =
+    document.getElementById("emptyMessage");
+
+const noResults =
+    document.getElementById("noResults");
+
+const wordCount =
+    document.getElementById("wordCount");
+
+const searchCount =
+    document.getElementById("searchCount");
+
+
+/* =========================
+   CARGAR PALABRAS
+========================= */
+
+async function loadWords() {
+
+    try {
+
+        loading.classList.remove("hidden");
+
+        const response = await fetch("/api/words");
+
+        if (!response.ok) {
+            throw new Error("No se pudo cargar el glosario");
+        }
+
+        words = await response.json();
+
+        renderWords();
+
+    } catch (error) {
+
+        console.error(error);
+
+        wordsContainer.innerHTML = `
+            <div class="error">
+                No se pudo cargar el glosario.
+            </div>
+        `;
+
+    } finally {
+
+        loading.classList.add("hidden");
+
+    }
+}
+
+
+/* =========================
+   NORMALIZAR PALABRAS
+========================= */
+
+function normalizeWord(value) {
+
+    return value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* =========================
+   BUSCAR
+========================= */
+
+function getFilteredWords() {
+
+    const query =
+        normalizeWord(searchInput.value);
+
+    if (!query) {
+        return words;
+    }
+
+    return words.filter(word => {
+
+        const english =
+            normalizeWord(word.english);
+
+        const spanish =
+            normalizeWord(word.spanish);
+
+        const meaning =
+            normalizeWord(word.meaning);
+
+        return (
+            english.includes(query) ||
+            spanish.includes(query) ||
+            meaning.includes(query)
+        );
+
+    });
+
+}
+
+
+/* =========================
+   RENDERIZAR
+========================= */
+
+function renderWords() {
+
+    const filteredWords =
+        getFilteredWords();
+
+    wordsContainer.innerHTML = "";
+
+    wordCount.textContent =
+        `Total: ${words.length} palabras`;
+
+    if (searchInput.value.trim()) {
+
+        searchCount.textContent =
+            `Mostrando ${filteredWords.length} de ${words.length}`;
+
+    } else {
+
+        searchCount.textContent = "";
+
+    }
+
+
+    /* Sin palabras */
+
+    if (words.length === 0) {
+
+        emptyMessage.classList.remove("hidden");
+        noResults.classList.add("hidden");
+
+        return;
+
+    } else {
+
+        emptyMessage.classList.add("hidden");
+
+    }
+
+
+    /* Sin resultados */
+
+    if (filteredWords.length === 0) {
+
+        noResults.classList.remove("hidden");
+
+        return;
+
+    } else {
+
+        noResults.classList.add("hidden");
+
+    }
+
+
+    /* Orden alfabético */
+
+    filteredWords
+        .sort((a, b) =>
+            a.english.localeCompare(
+                b.english,
+                "en",
+                { sensitivity: "base" }
+            )
+        );
+
+
+    /* Crear tarjetas */
+
+    filteredWords.forEach(word => {
+
+        const card =
+            document.createElement("article");
+
+        card.className = "word-card";
+
+        card.innerHTML = `
+
+            <div class="word-content">
+
+                <div class="word-field">
+
+                    <span class="label">
+                        Inglés
+                    </span>
+
+                    <strong>
+                        ${escapeHtml(word.english)}
+                    </strong>
+
+                </div>
+
+
+                <div class="word-field">
+
+                    <span class="label">
+                        Español
+                    </span>
+
+                    <span>
+                        ${escapeHtml(word.spanish)}
+                    </span>
+
+                </div>
+
+
+                <div class="word-field">
+
+                    <span class="label">
+                        Significado
+                    </span>
+
+                    <span>
+                        ${escapeHtml(word.meaning)}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="word-actions">
+
+                <button
+                    class="btn btn-edit"
+                    onclick="editWord('${word.id}')"
+                >
+                    ✏️ Modificar
+                </button>
+
+                <button
+                    class="btn btn-delete"
+                    onclick="deleteWord('${word.id}')"
+                >
+                    🗑️ Eliminar
+                </button>
+
+            </div>
+
+        `;
+
+        wordsContainer.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================
+   ESCAPAR HTML
+========================= */
+
+function escapeHtml(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   MOSTRAR FORMULARIO
+========================= */
+
+addButton.addEventListener("click", () => {
+
+    editingId = null;
+
+    document.getElementById("formTitle")
+        .textContent = "Agregar palabra";
+
+    wordForm.reset();
+
+    formContainer.classList.remove("hidden");
+
+    document
+        .getElementById("english")
+        .focus();
+
+});
+
+
+/* =========================
+   CANCELAR
+========================= */
+
+cancelButton.addEventListener("click", () => {
+
+    formContainer.classList.add("hidden");
+
+    editingId = null;
+
+    wordForm.reset();
+
+});
+
+
+/* =========================
+   GUARDAR
+========================= */
+
+wordForm.addEventListener("submit", async event => {
+
+    event.preventDefault();
+
+    const english =
+        document.getElementById("english")
+            .value.trim();
+
+    const spanish =
+        document.getElementById("spanish")
+            .value.trim();
+
+    const meaning =
+        document.getElementById("meaning")
+            .value.trim();
+
+
+    if (!english || !spanish || !meaning) {
+
+        alert("Todos los campos son obligatorios.");
+
+        return;
+
+    }
+
+
+    /* Comprobar duplicados */
+
+    const duplicate =
+        words.some(word => {
+
+            if (
+                editingId &&
+                word.id === editingId
+            ) {
+                return false;
+            }
+
+            return (
+                normalizeWord(word.english) ===
+                normalizeWord(english)
+            );
+
+        });
+
+
+    if (duplicate) {
+
+        alert(
+            "Esta palabra ya existe en el glosario."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+        english,
+        spanish,
+        meaning
+    };
+
+
+    try {
+
+        let response;
+
+        if (editingId) {
+
+            response = await fetch(
+                `/api/words/${editingId}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+        } else {
+
+            response = await fetch(
+                "/api/words",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+        }
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.error ||
+                "No se pudo guardar"
+            );
+
+        }
+
+
+        alert(
+            editingId
+                ? "Palabra modificada correctamente."
+                : "Palabra agregada correctamente."
+        );
+
+
+        formContainer.classList.add("hidden");
+
+        wordForm.reset();
+
+        editingId = null;
+
+        await loadWords();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            error.message ||
+            "Ocurrió un error."
+        );
+
+    }
+
+});
+
+
+/* =========================
+   EDITAR
+========================= */
+
+function editWord(id) {
+
+    const word =
+        words.find(word => word.id === id);
+
+    if (!word) {
+        return;
+    }
+
+    editingId = id;
+
+    document.getElementById("formTitle")
+        .textContent = "Modificar palabra";
+
+    document.getElementById("english")
+        .value = word.english;
+
+    document.getElementById("spanish")
+        .value = word.spanish;
+
+    document.getElementById("meaning")
+        .value = word.meaning;
+
+    formContainer.classList.remove("hidden");
+
+    document.getElementById("english")
+        .focus();
+
+}
+
+
+/* =========================
+   ELIMINAR
+========================= */
+
+async function deleteWord(id) {
+
+    const word =
+        words.find(word => word.id === id);
+
+    if (!word) {
+        return;
+    }
+
+
+    const confirmed =
+        confirm(
+            `¿Seguro que querés eliminar "${word.english}"?`
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/words/${id}`,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.error ||
+                "No se pudo eliminar"
+            );
+
+        }
+
+
+        alert(
+            "Palabra eliminada correctamente."
+        );
+
+
+        await loadWords();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            error.message ||
+            "Ocurrió un error."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   BUSQUEDA EN TIEMPO REAL
+========================= */
+
+searchInput.addEventListener(
+    "input",
+    renderWords
+);
+
+
+/* =========================
+   INICIAR
+========================= */
+
+loadWords();
+
+</script>
+
+{% endblock %}
