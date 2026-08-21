@@ -6,8 +6,13 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
+
     font-family:
         Inter,
         system-ui,
@@ -18,12 +23,18 @@ body {
 
     background: #f5f7fa;
     color: #1f2937;
+
+    line-height: 1.5;
 }
 
 button,
 input,
 textarea {
     font: inherit;
+}
+
+button {
+    cursor: pointer;
 }
 
 
@@ -33,17 +44,20 @@ textarea {
 
 .glossary {
     width: min(1200px, 94%);
+
     margin: 0 auto;
+
     padding: 40px 0 70px;
 }
 
 
 /* =========================================================
-   HEADER
+   HEADER DEL GLOSARIO
 ========================================================= */
 
 .glossary-header {
     text-align: center;
+
     margin-bottom: 30px;
 }
 
@@ -57,12 +71,17 @@ textarea {
     );
 
     font-weight: 800;
+
     letter-spacing: -1px;
+
+    color: #111827;
 }
 
 .glossary-header p {
     margin: 0;
+
     color: #6b7280;
+
     font-size: 1rem;
 }
 
@@ -72,26 +91,42 @@ textarea {
 ========================================================= */
 
 .search-container {
-    margin-bottom: 20px;
+    width: 100%;
+
+    margin-bottom: 18px;
 }
 
 .search-container input {
     width: 100%;
 
-    padding: 16px 20px;
+    min-height: 54px;
+
+    padding: 14px 18px;
 
     border: 1px solid #d1d5db;
+
     border-radius: 12px;
 
-    background: white;
+    background: #ffffff;
+
+    color: #111827;
 
     font-size: 1rem;
 
     outline: none;
 
     transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.15s ease;
+}
+
+.search-container input::placeholder {
+    color: #9ca3af;
+}
+
+.search-container input:hover {
+    border-color: #9ca3af;
 }
 
 .search-container input:focus {
@@ -109,32 +144,42 @@ textarea {
 
 .actions {
     display: flex;
+
     justify-content: flex-end;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .btn {
+    min-height: 42px;
+
     border: none;
+
     border-radius: 9px;
 
-    padding: 11px 17px;
+    padding: 10px 16px;
 
     background: #2563eb;
-    color: white;
+
+    color: #ffffff;
 
     font-weight: 600;
 
     cursor: pointer;
 
     transition:
-        transform 0.15s,
-        background 0.15s,
-        opacity 0.15s;
+        transform 0.15s ease,
+        background 0.15s ease,
+        opacity 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .btn:hover {
     background: #1d4ed8;
+
+    box-shadow:
+        0 4px 12px
+        rgba(37, 99, 235, 0.2);
 }
 
 .btn:active {
@@ -143,8 +188,53 @@ textarea {
 
 .btn:disabled {
     opacity: 0.6;
+
     cursor: not-allowed;
+
+    box-shadow: none;
 }
+
+
+/* =========================================================
+   BOTÓN INSTALAR PWA
+========================================================= */
+
+.install-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background: #2563eb;
+
+    font-size: 0.95rem;
+
+    box-shadow:
+        0 5px 15px
+        rgba(37, 99, 235, 0.18);
+}
+
+.install-btn:hover {
+    background: #1d4ed8;
+
+    box-shadow:
+        0 7px 18px
+        rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   BOTONES SECUNDARIOS
+========================================================= */
 
 .btn-secondary {
     background: #6b7280;
@@ -154,6 +244,11 @@ textarea {
     background: #4b5563;
 }
 
+
+/* =========================================================
+   BOTÓN MODIFICAR
+========================================================= */
+
 .btn-edit {
     background: #f59e0b;
 }
@@ -161,6 +256,11 @@ textarea {
 .btn-edit:hover {
     background: #d97706;
 }
+
+
+/* =========================================================
+   BOTÓN ELIMINAR
+========================================================= */
 
 .btn-delete {
     background: #dc2626;
@@ -176,7 +276,9 @@ textarea {
 ========================================================= */
 
 .form-container {
-    background: white;
+    width: 100%;
+
+    background: #ffffff;
 
     border: 1px solid #e5e7eb;
 
@@ -192,9 +294,17 @@ textarea {
 }
 
 .form-container h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+
+    color: #111827;
+
+    font-size: 1.4rem;
 }
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
 
 .form-group {
     margin-bottom: 18px;
@@ -205,7 +315,11 @@ textarea {
 
     margin-bottom: 7px;
 
+    color: #374151;
+
     font-weight: 600;
+
+    font-size: 0.9rem;
 }
 
 .form-group input,
@@ -218,13 +332,19 @@ textarea {
 
     border-radius: 8px;
 
-    background: #fff;
+    background: #ffffff;
+
+    color: #111827;
 
     outline: none;
 
     transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input {
+    min-height: 44px;
 }
 
 .form-group input:focus,
@@ -242,11 +362,21 @@ textarea {
     resize: vertical;
 }
 
+
+/* =========================================================
+   ACCIONES DEL FORMULARIO
+========================================================= */
+
 .form-actions {
     display: flex;
+
     gap: 10px;
 
     margin-top: 20px;
+}
+
+.form-actions .btn {
+    min-width: 120px;
 }
 
 
@@ -285,7 +415,7 @@ textarea {
 
 
 /* =========================================================
-   TARJETA
+   TARJETA DE PALABRA
 ========================================================= */
 
 .word-card {
@@ -295,41 +425,58 @@ textarea {
 
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 24px;
 
-    background: white;
+    width: 100%;
+
+    padding: 20px;
+
+    background: #ffffff;
 
     border: 1px solid #e5e7eb;
 
     border-radius: 12px;
 
-    padding: 20px;
-
     transition:
-        box-shadow 0.2s,
-        transform 0.2s;
+        box-shadow 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .word-card:hover {
+    border-color: #d1d5db;
+
     box-shadow:
         0 6px 20px
         rgba(0, 0, 0, 0.07);
+
+    transform: translateY(-1px);
 }
+
+
+/* =========================================================
+   CONTENIDO DE PALABRA
+========================================================= */
 
 .word-content {
     flex: 1;
 
+    min-width: 0;
+
     display: grid;
 
     grid-template-columns:
-        1fr
-        1fr
-        2fr;
+        minmax(140px, 1fr)
+        minmax(140px, 1fr)
+        minmax(250px, 2fr);
 
-    gap: 20px;
-
-    min-width: 0;
+    gap: 25px;
 }
+
+
+/* =========================================================
+   CAMPO DE PALABRA
+========================================================= */
 
 .word-field {
     display: flex;
@@ -344,7 +491,7 @@ textarea {
 .word-field .label {
     color: #9ca3af;
 
-    font-size: 0.75rem;
+    font-size: 0.72rem;
 
     text-transform: uppercase;
 
@@ -354,15 +501,23 @@ textarea {
 }
 
 .word-field strong {
-    font-size: 1.1rem;
-
     color: #111827;
 
+    font-size: 1.08rem;
+
+    font-weight: 700;
+
     word-break: break-word;
+
+    overflow-wrap: anywhere;
 }
 
 .word-field span:not(.label) {
+    color: #374151;
+
     word-break: break-word;
+
+    overflow-wrap: anywhere;
 
     line-height: 1.5;
 }
@@ -375,6 +530,8 @@ textarea {
 .word-actions {
     display: flex;
 
+    align-items: center;
+
     gap: 8px;
 
     flex-shrink: 0;
@@ -382,6 +539,8 @@ textarea {
 
 .word-actions .btn {
     white-space: nowrap;
+
+    min-width: 100px;
 }
 
 
@@ -396,11 +555,13 @@ textarea {
 .loading,
 .empty,
 .error {
+    width: 100%;
+
     text-align: center;
 
     padding: 40px 20px;
 
-    background: white;
+    background: #ffffff;
 
     border: 1px solid #e5e7eb;
 
@@ -415,81 +576,273 @@ textarea {
 
 
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
     .glossary {
-        width: 92%;
+        width: 94%;
 
-        padding-top: 25px;
-    }
-
-
-    .actions {
-        justify-content: stretch;
-    }
-
-    .actions .btn {
-        width: 100%;
+        padding-top: 30px;
     }
 
 
     .word-card {
-        flex-direction: column;
+        align-items: flex-start;
 
-        align-items: stretch;
+        flex-direction: column;
 
         gap: 18px;
     }
 
 
     .word-content {
-        grid-template-columns: 1fr;
+        width: 100%;
 
-        gap: 14px;
+        grid-template-columns:
+            1fr
+            1fr
+            2fr;
+
+        gap: 18px;
     }
 
 
     .word-actions {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .word-actions .btn {
         width: 100%;
+
+        justify-content: flex-end;
     }
 
 }
 
 
-@media (max-width: 500px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
 
     .glossary {
         width: 94%;
+
+        padding: 25px 0 50px;
     }
 
 
+    .glossary-header {
+        margin-bottom: 22px;
+    }
+
+
+    .glossary-header h1 {
+        font-size: 2rem;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    .glossary-header p {
+        font-size: 0.92rem;
+    }
+
+
+    /* -------------------------
+       BUSCADOR
+    ------------------------- */
+
+    .search-container {
+        margin-bottom: 14px;
+    }
+
+
+    .search-container input {
+        min-height: 52px;
+
+        padding: 14px 16px;
+
+        font-size: 16px;
+    }
+
+
+    /* -------------------------
+       BOTONES PRINCIPALES
+    ------------------------- */
+
+    .actions {
+        width: 100%;
+
+        justify-content: stretch;
+
+        margin-bottom: 16px;
+    }
+
+
+    .actions .btn {
+        width: 100%;
+    }
+
+
+    .install-btn {
+        min-height: 50px;
+
+        margin-bottom: 16px;
+    }
+
+
+    /* -------------------------
+       FORMULARIO
+    ------------------------- */
+
     .form-container {
         padding: 18px;
+
+        margin-bottom: 22px;
+
+        border-radius: 12px;
+    }
+
+
+    .form-container h2 {
+        font-size: 1.2rem;
+    }
+
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
     }
 
 
     .form-actions {
         flex-direction: column;
+
+        gap: 8px;
     }
+
 
     .form-actions .btn {
         width: 100%;
+
+        min-height: 46px;
     }
 
+
+    /* -------------------------
+       INFORMACIÓN
+    ------------------------- */
 
     .glossary-info {
         flex-direction: column;
 
         align-items: flex-start;
+
+        gap: 3px;
+
+        margin-bottom: 12px;
+    }
+
+
+    /* -------------------------
+       TARJETA
+    ------------------------- */
+
+    .word-card {
+        padding: 17px;
+
+        gap: 18px;
+
+        border-radius: 11px;
+    }
+
+
+    .word-content {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+
+    .word-field {
+        gap: 3px;
+    }
+
+
+    .word-field .label {
+        font-size: 0.7rem;
+    }
+
+
+    .word-field strong {
+        font-size: 1.05rem;
+    }
+
+
+    .word-field span:not(.label) {
+        font-size: 0.95rem;
+    }
+
+
+    /* -------------------------
+       BOTONES DE TARJETA
+    ------------------------- */
+
+    .word-actions {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+
+    .word-actions .btn {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 46px;
+
+        padding: 10px 8px;
+
+        font-size: 0.9rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .glossary {
+        width: 92%;
+
+        padding-top: 20px;
+    }
+
+
+    .glossary-header h1 {
+        font-size: 1.75rem;
+    }
+
+
+    .glossary-header p {
+        font-size: 0.88rem;
+    }
+
+
+    .word-card {
+        padding: 15px;
     }
 
 
@@ -497,11 +850,32 @@ textarea {
         grid-template-columns: 1fr;
     }
 
-}
-.install-btn {
-    margin-bottom: 20px;
+
+    .word-actions .btn {
+        min-height: 44px;
+    }
+
 }
 
-.hidden {
-    display: none !important;
+
+/* =========================================================
+   PANTALLAS GRANDES
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .glossary {
+        width: min(1300px, 92%);
+    }
+
+
+    .word-content {
+        grid-template-columns:
+            minmax(180px, 1fr)
+            minmax(180px, 1fr)
+            minmax(350px, 2fr);
+
+        gap: 35px;
+    }
+
 }
