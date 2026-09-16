@@ -90,6 +90,12 @@
     "meaning": "Compartimentos de los muebles de la habitación donde se almacenan insumos limpios para el cuidado del paciente, como guantes o gasas."
   },
   {
+    "id": "cac92dbe-25dc-479e-a78c-e26dd652c29d",
+    "english": "Drug",
+    "spanish": "Medicamento / Fármaco",
+    "meaning": "Sustancia química utilizada para el tratamiento, cura, prevención o diagnóstico de una enfermedad"
+  },
+  {
     "id": "0acee95c-0d93-4962-886a-c97eb499448c",
     "english": "Empty",
     "spanish": "Vaciar",
