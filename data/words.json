@@ -66,6 +66,12 @@
     "meaning": "Acción de remover la suciedad, impurezas y posibles agentes patógenos de las superficies o equipos médicos de la habitación."
   },
   {
+    "id": "5f240532-8583-417a-8fe1-02ea1d41ff98",
+    "english": "Discard",
+    "spanish": "Desechar / Descartar",
+    "meaning": "Acción de eliminar de manera segura los insumos médicos de un solo uso o contaminados, siguiendo estrictamente los protocolos de bioseguridad."
+  },
+  {
     "id": "3a1ecacc-6cd9-4ac1-8dd9-fd57dccda7bc",
     "english": "External",
     "spanish": "Externo",
