@@ -1,5 +1,11 @@
 [
   {
+    "id": "8285a1da-c0fa-4e25-b1f8-952892049a70",
+    "english": "Admitted",
+    "spanish": "Admitido / Ingresado",
+    "meaning": "Proceso por el cual un paciente es registrado e ingresado formalmente a una unidad u hospital para recibir atención médica o cuidados de enfermería."
+  },
+  {
     "id": "d4c15f4a-8072-4d09-a779-33869ba2004c",
     "english": "Assess",
     "spanish": "Evaluar / Valorar",
