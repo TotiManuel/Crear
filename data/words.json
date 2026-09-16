@@ -322,5 +322,11 @@
     "english": "Wordiness",
     "spanish": "Exceso de palabras / Verborragia",
     "meaning": ": Uso de más palabras de las necesarias para expresar una idea, algo que se debe evitar al redactar registros médicos para mantenerlos concisos."
+  },
+  {
+    "id": "999efc30-24ec-416a-a21a-8517f0475e32",
+    "english": "Wrist",
+    "spanish": "Muñeca",
+    "meaning": "Articulación que une la mano con el antebrazo, lugar habitual donde el personal de enfermería toma el pulso de un paciente."
   }
 ]
