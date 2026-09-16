@@ -96,6 +96,12 @@
     "meaning": "Elemento usado para inyectar medicamentos y preparar medicación."
   },
   {
+    "id": "5c2cbb39-0f63-4f9c-863a-3dfecd8395ba",
+    "english": "Unaffected",
+    "spanish": "No afectado / Sin cambios",
+    "meaning": "Que sigue funcionando con normalidad y no ha sufrido alteraciones, modificaciones o interrupciones en su servicio debido a una situación externa."
+  },
+  {
     "id": "b23e4ed0-3f14-46d5-babd-19d1bf9bc211",
     "english": "Unresponsive",
     "spanish": "Inconsciente / Sin respuesta",
