@@ -204,6 +204,12 @@
     "meaning": "Acción o tratamiento (generalmente farmacológico) destinado a reducir o eliminar la sensación de dolor en un paciente, muy utilizado en cuidados pre y postoperatorios."
   },
   {
+    "id": "8c6ff00b-d53f-46a2-b9a9-7b63b5516bb8",
+    "english": "Prescription",
+    "spanish": "Receta médica / Prescripción",
+    "meaning": "Orden escrita o electrónica emitida por un profesional médico autorizado, en la cual se indican los medicamentos o tratamientos específicos que deben dispensarse a un paciente."
+  },
+  {
     "id": "5bd12393-5b9c-49dd-8bbc-c6b47b4511cd",
     "english": "Pulse",
     "spanish": "Pulso",
