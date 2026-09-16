@@ -6,6 +6,12 @@
     "meaning": "Acción de examinar detenidamente el estado de salud de un paciente o la gravedad de una lesión para determinar los pasos a seguir."
   },
   {
+    "id": "6e68acc1-e8bb-44af-bf91-a4545d53dbcc",
+    "english": "Basement",
+    "spanish": "Sótano / Subsuelo",
+    "meaning": "Planta inferior de un edificio, que suele estar debajo del nivel de la calle, donde a menudo se ubican áreas de servicio, laboratorios o estudios por imágenes en un centro de salud."
+  },
+  {
     "id": "414f423b-3f3b-4d3c-9df2-f63bd10c6c0a",
     "english": "Broken",
     "spanish": "Roto / Fracturado",
