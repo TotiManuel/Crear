@@ -30,6 +30,12 @@
     "meaning": "Mueble ubicado junto a la cama del paciente utilizado para guardar sus pertenencias y donde el personal de salud coloca insumos básicos."
   },
   {
+    "id": "2d8dcb02-6573-4453-aa49-1b75144d9b3f",
+    "english": "Biohazard waste container",
+    "spanish": "Contenedor de residuos biopeligrosos / Bolsa roja",
+    "meaning": "Recipiente específico utilizado para desechar materiales que han estado en contacto con fluidos corporales y representan un riesgo de infección o contaminación."
+  },
+  {
     "id": "414f423b-3f3b-4d3c-9df2-f63bd10c6c0a",
     "english": "Broken",
     "spanish": "Roto / Fracturado",
