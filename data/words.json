@@ -18,12 +18,6 @@
     "meaning": "Acción de examinar detenidamente el estado de salud de un paciente o la gravedad de una lesión para determinar los pasos a seguir."
   },
   {
-    "id": "6e68acc1-e8bb-44af-bf91-a4545d53dbcc",
-    "english": "Basement",
-    "spanish": "Sótano / Subsuelo",
-    "meaning": "Planta inferior de un edificio, que suele estar debajo del nivel de la calle, donde a menudo se ubican áreas de servicio, laboratorios o estudios por imágenes en un centro de salud."
-  },
-  {
     "id": "0a319408-7c65-473d-a700-22eb7148a1d6",
     "english": "Bedside table",
     "spanish": "Mesa de luz / Mesa auxiliar",
@@ -208,6 +202,12 @@
     "english": "New",
     "spanish": "Nuevo",
     "meaning": "Que se percibe o se trata por primera vez, aplicado generalmente a pacientes que recién ingresan a un centro de salud para ser atendidos."
+  },
+  {
+    "id": "6e68acc1-e8bb-44af-bf91-a4545d53dbcc",
+    "english": "Nurse",
+    "spanish": "Enfermera",
+    "meaning": "Planta inferior de un edificio, que suele estar debajo del nivel de la calle, donde a menudo se ubican áreas de servicio, laboratorios o estudios por imágenes en un centro de salud."
   },
   {
     "id": "1c1c2b1c-cb3e-4e3c-994a-8d919ae5abf6",
