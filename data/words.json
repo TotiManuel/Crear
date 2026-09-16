@@ -198,6 +198,12 @@
     "meaning": "Personas que requieren asistencia médica, cuidados de enfermería y que están bajo tratamiento por parte de profesionales de la salud."
   },
   {
+    "id": "edf9c445-a266-4952-9759-819d6c4aa779",
+    "english": "Pain Relief",
+    "spanish": "Alivio del dolor / Analgesia",
+    "meaning": "Acción o tratamiento (generalmente farmacológico) destinado a reducir o eliminar la sensación de dolor en un paciente, muy utilizado en cuidados pre y postoperatorios."
+  },
+  {
     "id": "5bd12393-5b9c-49dd-8bbc-c6b47b4511cd",
     "english": "Pulse",
     "spanish": "Pulso",
