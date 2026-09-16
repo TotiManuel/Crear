@@ -316,5 +316,11 @@
     "english": "Wing",
     "spanish": "Ala / Pabellón",
     "meaning": "Sección, sector o bloque extendido de un edificio grande, que en un hospital suele albergar especialidades específicas."
+  },
+  {
+    "id": "971f0104-0d49-4c7d-a7ee-e25712e6d02f",
+    "english": "Wordiness",
+    "spanish": "Exceso de palabras / Verborragia",
+    "meaning": ": Uso de más palabras de las necesarias para expresar una idea, algo que se debe evitar al redactar registros médicos para mantenerlos concisos."
   }
 ]
