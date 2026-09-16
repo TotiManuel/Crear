@@ -60,6 +60,12 @@
     "meaning": "Elemento usado para inyectar medicamentos y preparar medicación."
   },
   {
+    "id": "b23e4ed0-3f14-46d5-babd-19d1bf9bc211",
+    "english": "Unresponsive",
+    "spanish": "Inconsciente / Sin respuesta",
+    "meaning": "Estado de alerta alterado en el cual un paciente no reacciona a los estímulos verbales o dolorosos, indicando una posible emergencia médica."
+  },
+  {
     "id": "7ad03c0a-32a9-4b71-875c-3051c8662c0d",
     "english": "Wheelchair",
     "spanish": "Silla de ruedas",
