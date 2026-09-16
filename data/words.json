@@ -78,6 +78,12 @@
     "meaning": "Acción de eliminar de manera segura los insumos médicos de un solo uso o contaminados, siguiendo estrictamente los protocolos de bioseguridad."
   },
   {
+    "id": "264f760b-07d3-490c-9800-efec19f0fa42",
+    "english": "Disease",
+    "spanish": "Enfermedad / Afección",
+    "meaning": "Alteración del estado fisiológico en una o varias partes del cuerpo, manifestada por síntomas y signos característicos que requieren diagnóstico y tratamiento médico."
+  },
+  {
     "id": "9c85ddbd-6f9f-42a4-9ca0-5f0a47aa3758",
     "english": "Drawers",
     "spanish": "Cajones",
