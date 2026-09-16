@@ -72,6 +72,12 @@
     "meaning": "Acción de eliminar de manera segura los insumos médicos de un solo uso o contaminados, siguiendo estrictamente los protocolos de bioseguridad."
   },
   {
+    "id": "9c85ddbd-6f9f-42a4-9ca0-5f0a47aa3758",
+    "english": "Drawers",
+    "spanish": "Cajones",
+    "meaning": "Compartimentos de los muebles de la habitación donde se almacenan insumos limpios para el cuidado del paciente, como guantes o gasas."
+  },
+  {
     "id": "3a1ecacc-6cd9-4ac1-8dd9-fd57dccda7bc",
     "english": "External",
     "spanish": "Externo",
