@@ -60,6 +60,12 @@
     "meaning": "Herramienta de seguridad clínica que detalla los pasos o elementos necesarios para garantizar que la unidad del paciente esté equipada y preparada correctamente."
   },
   {
+    "id": "7be35ff1-997e-468c-93da-e67243e2e782",
+    "english": "Chief Surgeon",
+    "spanish": "Cirujano/a en jefe",
+    "meaning": "Médico cirujano principal o líder del equipo quirúrgico, responsable de supervisar y llevar a cabo los procedimientos operatorios dentro del hospital."
+  },
+  {
     "id": "76854c7c-8aec-4c19-81c0-48ec9b425071",
     "english": "Clean",
     "spanish": "Limpiar",
