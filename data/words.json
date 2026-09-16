@@ -126,6 +126,12 @@
     "meaning": "Material textil médico, estéril o no estéril, utilizado para limpiar, cubrir heridas, absorber fluidos o aplicar medicamentos locales."
   },
   {
+    "id": "02a0d957-e802-42cb-be1a-9360f1434fc2",
+    "english": "General Practitioner",
+    "spanish": "Médico/a clínico/a / Médico/a general",
+    "meaning": "Profesional de la medicina que brinda atención médica primaria, diagnostica y trata enfermedades comunes de manera integral, y deriva a especialistas cuando es necesario."
+  },
+  {
     "id": "d5585671-f48c-41da-be52-782b58a3ec07",
     "english": "Gloves",
     "spanish": "Guantes",
