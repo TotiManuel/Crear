@@ -6,6 +6,12 @@
     "meaning": "Proceso por el cual un paciente es registrado e ingresado formalmente a una unidad u hospital para recibir atención médica o cuidados de enfermería."
   },
   {
+    "id": "3e22a991-9303-4923-8d61-bdb412d4402b",
+    "english": "Alternating pressure mattress",
+    "spanish": "Colchón de presión alterna / Colchón antiescaras",
+    "meaning": "Dispositivo médico diseñado para inflar y desinflar celdas de aire de forma programada, fundamental para prevenir úlceras por presión en pacientes inmovilizados."
+  },
+  {
     "id": "d4c15f4a-8072-4d09-a779-33869ba2004c",
     "english": "Assess",
     "spanish": "Evaluar / Valorar",
