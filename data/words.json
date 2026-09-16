@@ -162,6 +162,12 @@
     "meaning": "Latido rítmico del corazón que se puede percibir al palpar ciertas arterias del cuerpo, utilizado como un signo vital fundamental."
   },
   {
+    "id": "9d3387f0-e74a-43f1-9ea3-64c4ac0f2ced",
+    "english": "Restock",
+    "spanish": "Reponer / Reabastecer",
+    "meaning": "Acción de volver a llenar los suministros o insumos médicos faltantes en una habitación antes de que ingrese un nuevo paciente."
+  },
+  {
     "id": "5df58ed4-5058-43c1-893c-6da2fdfd6f03",
     "english": "Room",
     "spanish": "Sala / Habitación",
