@@ -108,6 +108,12 @@
     "meaning": "Estado de alerta alterado en el cual un paciente no reacciona a los estímulos verbales o dolorosos, indicando una posible emergencia médica."
   },
   {
+    "id": "fbe0b373-f71f-497f-8a7b-708ce33acf0b",
+    "english": "Update",
+    "spanish": "Actualizar / Renovar",
+    "meaning": "Acción de modernizar, mejorar o poner al día las instalaciones físicas o los equipos médicos para brindar un servicio de mejor calidad."
+  },
+  {
     "id": "7ad03c0a-32a9-4b71-875c-3051c8662c0d",
     "english": "Wheelchair",
     "spanish": "Silla de ruedas",
