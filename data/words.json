@@ -54,6 +54,12 @@
     "meaning": "Conjunto de acciones, asistencia y tratamientos que brinda el personal de salud a los pacientes para mantener o recuperar su bienestar."
   },
   {
+    "id": "105eb986-7f85-4fca-bab6-b42f8df683f6",
+    "english": "Checklist",
+    "spanish": "Lista de verificación / Lista de control",
+    "meaning": "Herramienta de seguridad clínica que detalla los pasos o elementos necesarios para garantizar que la unidad del paciente esté equipada y preparada correctamente."
+  },
+  {
     "id": "3a1ecacc-6cd9-4ac1-8dd9-fd57dccda7bc",
     "english": "External",
     "spanish": "Externo",
