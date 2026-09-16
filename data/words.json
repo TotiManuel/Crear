@@ -222,6 +222,12 @@
     "meaning": "Acción de volver a llenar los suministros o insumos médicos faltantes en una habitación antes de que ingrese un nuevo paciente."
   },
   {
+    "id": "b9ac18b0-5b30-4c1a-a809-1f97ea4a9b09",
+    "english": "Results",
+    "spanish": "Resultados",
+    "meaning": "Datos o informes obtenidos después de realizar análisis de laboratorio o estudios diagnósticos, fundamentales para que el equipo de salud evalúe el estado del paciente."
+  },
+  {
     "id": "5df58ed4-5058-43c1-893c-6da2fdfd6f03",
     "english": "Room",
     "spanish": "Sala / Habitación",
