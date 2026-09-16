@@ -36,6 +36,12 @@
     "meaning": "Que se percibe o se trata por primera vez, aplicado generalmente a pacientes que recién ingresan a un centro de salud para ser atendidos."
   },
   {
+    "id": "2ed1358e-f09b-4fad-9602-e52f00dec3a0",
+    "english": "Pain",
+    "spanish": "Pacientes",
+    "meaning": "Personas que requieren asistencia médica, cuidados de enfermería y que están bajo tratamiento por parte de profesionales de la salud."
+  },
+  {
     "id": "5af4865e-bd08-4eda-9772-a1fd65517479",
     "english": "Surgery",
     "spanish": "Cirugía",
