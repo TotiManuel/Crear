@@ -118,5 +118,11 @@
     "english": "Wheelchair",
     "spanish": "Silla de ruedas",
     "meaning": "Silla que se emplea si la persona no puede movilizarse por sus propios medios."
+  },
+  {
+    "id": "7bb3b0b9-f6fe-4fae-9854-39340db92b3a",
+    "english": "Wing",
+    "spanish": "Ala / Pabellón",
+    "meaning": "Sección, sector o bloque extendido de un edificio grande, que en un hospital suele albergar especialidades específicas."
   }
 ]
