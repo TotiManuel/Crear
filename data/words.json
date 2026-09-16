@@ -78,6 +78,12 @@
     "meaning": "Compartimentos de los muebles de la habitación donde se almacenan insumos limpios para el cuidado del paciente, como guantes o gasas."
   },
   {
+    "id": "0acee95c-0d93-4962-886a-c97eb499448c",
+    "english": "Empty",
+    "spanish": "Vaciar",
+    "meaning": "Acción de retirar el contenido de los recipientes de descarte  para mantener la higiene y seguridad del entorno hospitalario."
+  },
+  {
     "id": "3a1ecacc-6cd9-4ac1-8dd9-fd57dccda7bc",
     "english": "External",
     "spanish": "Externo",
