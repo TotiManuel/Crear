@@ -78,6 +78,12 @@
     "meaning": "Latido rítmico del corazón que se puede percibir al palpar ciertas arterias del cuerpo, utilizado como un signo vital fundamental."
   },
   {
+    "id": "5df58ed4-5058-43c1-893c-6da2fdfd6f03",
+    "english": "Room",
+    "spanish": "Sala / Habitación",
+    "meaning": "Espacio delimitado dentro de un edificio que, en el ámbito de la salud, suele estar destinado a la internación, atención de urgencias o procedimientos médicos."
+  },
+  {
     "id": "5af4865e-bd08-4eda-9772-a1fd65517479",
     "english": "Surgery",
     "spanish": "Cirugía",
