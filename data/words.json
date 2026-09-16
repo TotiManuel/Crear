@@ -36,6 +36,12 @@
     "meaning": "Conjunto de edificios, espacios físicos, equipos y servicios dispuestos para un fin particular, en este caso, brindar asistencia médica."
   },
   {
+    "id": "7786776d-cfb5-4897-b566-0b15471845b3",
+    "english": "Floor",
+    "spanish": "Piso / Planta",
+    "meaning": "Cada uno de los niveles en los que se divide un edificio. (Ejemplo: \"second floor\" es el segundo piso)."
+  },
+  {
     "id": "d5585671-f48c-41da-be52-782b58a3ec07",
     "english": "Gloves",
     "spanish": "Guantes",
