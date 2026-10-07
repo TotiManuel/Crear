@@ -30,6 +30,12 @@
     "meaning": "Recipiente específico utilizado para desechar materiales que han estado en contacto con fluidos corporales y representan un riesgo de infección o contaminación."
   },
   {
+    "id": "35cdd29f-d025-4a5c-b126-f683fa03cb14",
+    "english": "Blood",
+    "spanish": "Sangre",
+    "meaning": "Sangre."
+  },
+  {
     "id": "1076de86-1dc2-4923-93da-3f877e49e545",
     "english": "Bone",
     "spanish": "Hueso",
